@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ajax 2 - Local JSON</title>
+</head>
+<body>
+  
+  <button id="button">Get Users</button>
+  <br><br>
+ 
+  <h1>Users</h1>  
+  <div id="users"></div>
+
+  <script>
+    
+    document.getElementById('button').addEventListener('click', loadUsers);
+
+   
+
+    function loadUsers(){
+      var xhr = new XMLHttpRequest();   //Createing the xhr object
+       
+      xhr.open('GET','http://127.0.0.1:8080/ejbca/enrol/server.jsp', true); //OPEN - type , url/file ,async
+           
+
+      xhr.onload = function(){
+        if(this.status == 200)   //status 200=ok , 403=forbidden ,404=not found
+        {
+         
+                console.log("I am working inside second.....");
+
+        }
+      }
+
+      xhr.send();
+    }
+  </script>
+</body>
+</html>
